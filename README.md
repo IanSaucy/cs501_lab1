@@ -76,3 +76,10 @@ When that is complete you should be able to run the following command to start t
 # Questions
 
 Any questions can be asked on Piazza!
+
+# Credits
+
+Login Page Starter Code: https://surajsharma.net/blog/react-login-form-typescript
+
+FastAPI Starter Code: https://fastapi.tiangolo.com/tutorial/sql-database
+
