@@ -11,6 +11,7 @@ python-multipart = "*"
 python-jose = {extras = ["cryptography"],version = "*"}
 passlib = {extras = ["bcrypt"],version = "*"}
 sqlalchemy = "*"
+uvicorn = ">=0.13"
 
 [requires]
 python_version = "3.9"
