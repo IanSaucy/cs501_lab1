@@ -3,7 +3,13 @@ from sqlalchemy.orm import Session
 import models, schemas
 
 
+def get_all_users(db: Session):
+    return db.query(models.User).all()
+
+
 def get_user(db: Session, user_id: int):
+    # Very similar to the following SQL
+    # select top 1 from users where user_id = id
     return db.query(models.User).filter(models.User.id == user_id).first()
 
 
@@ -20,8 +26,7 @@ def create_user(db: Session, user: schemas.UserCreate):
     return db_user
 
 
-def get_items(db: Session, skip: int = 0, limit: int = 100):
-    return db.query(models.Item).offset(skip).limit(limit).all()
+
 
 
 def create_user_item(db: Session, item: schemas.ItemCreate, user_id: int):

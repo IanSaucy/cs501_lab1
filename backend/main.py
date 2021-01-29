@@ -32,6 +32,16 @@ def test():
     return {"It's Working!"}
 
 
+# localhost:3000 Frontend
+# localhost:8000 backend
+
+# localhost:8000/users/
+@app.get("/users/", response_model=List[schemas.User])
+def get_all_users(db: Session = Depends(get_db)):
+    return crud.get_all_users(db)
+
+
+# localhost:8000/users/
 @app.post("/users/", response_model=schemas.User)
 def create_user(user: schemas.UserCreate, db: Session = Depends(get_db)):
     db_user = crud.get_user_by_email(db, email=user.email)
@@ -53,5 +63,3 @@ def create_item_for_user(
         user_id: int, item: schemas.ItemCreate, db: Session = Depends(get_db)
 ):
     return crud.create_user_item(db=db, item=item, user_id=user_id)
-
-
